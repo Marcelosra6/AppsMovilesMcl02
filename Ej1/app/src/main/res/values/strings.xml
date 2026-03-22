@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ConversorVario</string>
+    <string name="titulo">SELECCIONE SU TIPO DE CAMBIO:</string>
+    <string name="monto">Monto:</string>
+    <string name="btn_alternar">INTERCAMBIAR</string>
+    <string name="btn_convertir">CONVERTIR</string>
+</resources>
