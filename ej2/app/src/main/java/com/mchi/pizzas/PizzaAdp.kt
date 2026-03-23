@@ -6,19 +6,34 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+
 class PizzaAdp (private val context: Context, private val items: List<Pizza>) : BaseAdapter(){
-    override fun getCount() = items.size
-    override fun getItem(pos: Int) = items[pos]
-    override fun getItemId(pos: Long) = pos
+    override fun getCount(): Int  = items.size
+    override fun getItem(ps: Int): Any = items[ps]
+    override fun getItemId(ps: Int) : Long = ps.toLong()
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = convertView ?: LayoutInflater.from(context)
-            .inflate(R.layout.activity_main, parent, false)
+    override fun getView(pos: Int, convertView: View?, parent: ViewGroup?): View {
+        val view : View
+        val holder : ViewHolder
 
-        val pizza = items[position]
-        view.findViewById<ImageView>(R.id.).setImageResource(pizza.imagen)
-        view.findViewById<TextView>(R.id.nombre).text = pizza.nombre
-
+        if(convertView == null){
+            view = LayoutInflater.from(context).inflate(R.layout.grid_pizza, parent, false)
+            holder = ViewHolder()
+            holder.imagen = view.findViewById(R.id.imagenPizza)
+            view.tag = holder
+        }
+        else {
+            view = convertView
+            holder = view.tag as ViewHolder
+        }
+        val i = items[pos]
+        holder.texto?.text = i.nombre
+        holder.imagen?.setImageResource(i.imagen)
         return view
+
+    }
+    private class ViewHolder{
+        var imagen: ImageView? = null
+        var texto: TextView? = null
     }
 }

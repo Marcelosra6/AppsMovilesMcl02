@@ -1,8 +1,7 @@
 package com.mchi.pizzas
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ArrayAdapter
+
 import android.widget.GridView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -25,10 +24,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        //acomoda bien la pantalla
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
         val grid = findViewById<GridView>(R.id.gridView)
         grid.adapter = PizzaAdp(this, pizzas)
         grid.setOnItemClickListener { _, _, pos, _ ->
-            Toast.makeText(this,"${pizzas[pos].nombre}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Pizza ${pizzas[pos].nombre}", Toast.LENGTH_SHORT).show()
         }
     }
 }
