@@ -13,3 +13,7 @@
 ![E2I1](ImagenesPruebas/E2I1.jpeg)
 ![E2I2](ImagenesPruebas/E2I2.jpeg)
 ![E2I3](ImagenesPruebas/E2I3.jpeg)
+
+## Ejercicio 3:
+![E3I1](ImagenesPruebas/E3I1.jpeg)
+![E3I2](ImagenesPruebas/E3I2.jpeg)
